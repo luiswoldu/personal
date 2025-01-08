@@ -33,7 +33,7 @@ const ScrollTransformHeader = () => {
   };
 
   const dimensions = getAnimatedDimensions(scrollProgress);
-  const translateY = -150 * scrollProgress;
+  const translateY = -218 * scrollProgress;
 
   return (
     <div className="w-full min-h-[200vh] bg-white relative">
@@ -44,7 +44,16 @@ const ScrollTransformHeader = () => {
           height: `${dimensions.height}px`,
           transform: `translate(-50%, ${translateY}px)`,
         }}
-      />
+      >
+        <img
+          src="https://pbs.twimg.com/ext_tw_video_thumb/1858517907182878720/pu/img/1jUUxnTvvX4G4nta.jpg"  // Replace with the actual image URL
+          alt="Your description"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{
+            transform: 'none',  // Ensure the image is not affected by the container's transform
+          }}
+        />
+      </div>
     </div>
   );
 };

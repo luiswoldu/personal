@@ -6,4 +6,8 @@ export default defineConfig({
     base: '/my-animation-project/',
     // ... other config
   plugins: [react()],
+  build: {
+    outDir: 'dist'  // This is default, but let's be explicit
+  }
 })
+

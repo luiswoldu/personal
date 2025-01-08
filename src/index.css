@@ -2,33 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, sans-serif;
+/* Reset all containers */
+html, body, #root, #app {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.gallery-grid {
+  width: fit-content;
+  height: 750px;
+  position: relative;
   margin: 0;
-  padding: 0;
+  padding: 24px;
+  background-color: #ffffff;
 }
 
-.tab-bar {
-  @apply flex fixed top-0 w-full z-50;
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
-  justify-content: center;
+.gallery-item {
+  background-color: #000000;
+  overflow: hidden;
+  position: absolute;
+  color: white;
 }
 
-.tab-button {
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  margin: 0 5px;
-  padding: 15px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Base tile sizes */
+.small-tile {
+  width: 245px;
+  height: 154px;
 }
 
-.tab-button:hover {
-  background-color: #ddd;
+.large-tile {
+  width: 520px;
+  height: 325px;
 }
 
-.tab-button:focus {
-  outline: none;
+/* First row - Adjusted gaps to align with large2 */
+.small1 { left: 46px; top: 24px; }
+.small2 { left: 321px; top: 24px; }
+.small3 { left: 598px; top: 24px; }  /* Changed from 595px to 594px */
+.large1 { left: 874px; top: 24px; }
+
+/* Second row */
+.large2 { left: 46px; top: 200px; }
+.small6 { left: 598px; top: 200px; }
+
+/* Third row - Adjusted gaps to align with large2 */
+.small4 { left: 46px; top: 548px; }
+.small5 { left: 321px; top: 548px; }
+.large3 { left: 598px; top: 377px; }  /* Changed from 595px to 594px */
+
+/* Vertically stacked beside large3 */
+.small7 { 
+    left: 1149px;
+    top: 376px;
+}
+.small8 { 
+    left: 1149px;
+    top: 548px;
+}
+.large1 {
+  left: 874px;
+  top: 24px;
+  height: 330px; /* Increased from 325px to 330px */
 }
