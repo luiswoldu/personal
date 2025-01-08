@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger deployment on changes to the 'main' branch
+      - main  # Trigger the workflow when there are pushes to the 'main' branch
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Use the appropriate Node.js version
+          node-version: '16'  # Ensure the correct Node.js version is used
 
       # Install dependencies
       - name: Install dependencies
@@ -33,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # The directory containing the build files
+          publish_dir: ./dist  # Directory containing your built files
