@@ -34,3 +34,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist  # Directory containing your built files
+
+      # Debug: List files in the build directory
+      - name: List build output
+        run: ls -la ./dist
