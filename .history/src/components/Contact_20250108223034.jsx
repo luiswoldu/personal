@@ -21,7 +21,7 @@ const Contact = () => {
   return (
     <div
     style={{
-      height: '440px',  // Reduced height by 30% from 550px
+      height: '335px',  // Reduced height by 30% from 550px
       backgroundColor: 'white',
       position: 'relative',
       zIndex: 1,

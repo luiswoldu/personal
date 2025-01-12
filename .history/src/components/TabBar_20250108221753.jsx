@@ -37,6 +37,9 @@ const TabBar = () => {
     textTransform: 'uppercase',
     color: activeSection === buttonName.toLowerCase() ? '#000' : '#999',
     border: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   });
 
   return (
@@ -57,28 +60,28 @@ const TabBar = () => {
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         <button style={getButtonStyle('about')}>
-          <motion.span
+          <motion.span 
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.2 }}
           >
             ABOUT
           </motion.span>
         </button>
         <button style={getButtonStyle('work')}>
-          <motion.span
+          <motion.span 
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.4 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.4 }}
           >
             WORK
           </motion.span>
         </button>
         <button style={getButtonStyle('contact')}>
-          <motion.span
+          <motion.span 
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.6 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.6 }}
           >
             CONTACT
           </motion.span>

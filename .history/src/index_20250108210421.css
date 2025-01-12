@@ -1,0 +1,72 @@
+/* Reset all containers */
+html, body, #root, #app {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 270px 270px 270px 575px; /* Total width: 1499px */
+  grid-template-rows: 168px 168px 168px 350px;   /* Total height: 747px */
+  gap: 8px; /* Consistent spacing between tiles */
+  margin: 0 auto; /* Center the grid */
+  width: 1499px; /* Fixed total width */
+  height: 747px; /* Fixed total height */
+  grid-template-areas:
+    "small1 small2 small3 large1"
+    "small4 small5 small6 large1"
+    "large2 large2 small7 large3"
+    "large2 large2 small8 large3";
+}
+
+.gallery-item {
+  background-color: #f5f5f7;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.small-tile {
+  width: 270px;
+  height: 168px;
+}
+
+.large-tile {
+  width: 575px;
+  height: 350px;
+}
+
+/* Assign specific areas */
+.small1 { grid-area: small1; }
+.small2 { grid-area: small2; }
+.small3 { grid-area: small3; }
+.small4 { grid-area: small4; }
+.small5 { grid-area: small5; }
+.small6 { grid-area: small6; }
+.small7 { grid-area: small7; }
+.small8 { grid-area: small8; }
+
+.large1 { grid-area: large1; }
+.large2 { grid-area: large2; }
+.large3 { grid-area: large3; }
+
+/* Hide text initially */
+.hidden-text, .hidden-email {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+/* Animation class for text and email */
+.animate-text, .animate-email {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}

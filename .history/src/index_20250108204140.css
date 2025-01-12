@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset all containers */
+html, body, #root, #app {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.gallery-grid {
+  width: 100%;
+  height: 100vh;
+  position: relative; /* Make sure tiles are positioned within this container */
+  margin: 0;
+  padding: 24px;
+  background-color: #ffffff;
+}
+
+.gallery-item {
+  background-color: #000000;
+  overflow: hidden;
+  position: absolute;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.animate-text, .animate-email {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.animate-email {
+  transition-delay: 0.2s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Base tile sizes */
+.small-tile {
+  width: 245px;
+  height: 154px;
+}
+
+.large-tile {
+  width: 520px;
+  height: 325px;
+}
+
+/* First row */
+.small1 { left: 46px; top: 24px; }
+.small2 { left: 321px; top: 24px; }
+.small3 { left: 598px; top: 24px; }
+.large1 { left: 874px; top: 24px; }
+
+/* Second row */
+.large2 { left: 46px; top: 200px; }
+.small6 { left: 598px; top: 200px; }
+
+/* Third row */
+.small4 { left: 46px; top: 548px; }
+.small5 { left: 321px; top: 548px; }
+.large3 { left: 598px; top: 377px; }
+
+/* Vertically stacked beside large3 */
+.small7 { 
+    left: 1149px;
+    top: 376px;
+}
+.small8 { 
+    left: 1149px;
+    top: 548px;
+}
+
+.large1 {
+  left: 874px;
+  top: 24px;
+  height: 330px;
+}

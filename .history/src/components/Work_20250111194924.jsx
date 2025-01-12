@@ -17,14 +17,14 @@ const Work = () => {
     { id: 8, class: 'small-tile small8' },
     { id: 9, class: 'large-tile large1' },
     { id: 10, class: 'large-tile large2' },
-    { id: 11, class: 'large-tile large3' },
+    { id: 11, class: 'large-tile large3' }
   ];
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
     };
-
+    
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -34,7 +34,7 @@ const Work = () => {
     if (!isMobile) {
       observerRef.current = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('animate');
               observerRef.current.unobserve(entry.target);
@@ -45,7 +45,7 @@ const Work = () => {
       );
 
       const galleryItems = document.querySelectorAll('.gallery-item');
-      galleryItems.forEach((item) => {
+      galleryItems.forEach(item => {
         observerRef.current.observe(item);
       });
 
@@ -68,46 +68,58 @@ const Work = () => {
   return (
     <div className="relative bg-white overflow-hidden">
       {isMobile ? (
+        // Mobile View
         <div className="mobile-container">
-          <div className="mobile-content w-[328px] h-[246px] mx-auto relative">
+          <div className="mobile-content">
             {tiles.map((tile, index) => (
               <div
                 key={tile.id}
-                className={`mobile-tile absolute inset-0 transition-opacity duration-500 ${
-                  currentSlide === index ? 'opacity-100' : 'opacity-0'
+                className={`mobile-tile ${
+                  currentSlide === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
-                aria-hidden={currentSlide !== index}
               >
-                <div
-                  className="mobile-tile-inner w-full h-full flex items-center justify-center text-white"
-                  style={{ backgroundColor: `hsl(${index * 36}, 70%, 50%)` }}
-                />
+                <div className={`${tile.class} mobile-tile-inner`} />
               </div>
             ))}
           </div>
-
-          <div className="mobile-controls flex items-center justify-between px-12 py-4">
+          
+          {/* Navigation Controls */}
+          <div className="mobile-controls">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
-
+            
+            <div className="flex gap-2">
+              {tiles.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full ${
+                    currentSlide === index ? 'bg-black' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+            
             <button
               onClick={nextSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </button>
           </div>
         </div>
       ) : (
+        // Desktop Grid
         <div className="gallery-grid">
-          {tiles.map((tile) => (
-            <div
+          {tiles.map(tile => (
+            <div 
               key={tile.id}
               className={`gallery-item ${tile.class}`}
               data-number={tile.id}

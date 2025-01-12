@@ -81,26 +81,44 @@ const Work = () => {
                 <div
                   className="mobile-tile-inner w-full h-full flex items-center justify-center text-white"
                   style={{ backgroundColor: `hsl(${index * 36}, 70%, 50%)` }}
-                />
+                >
+                  Slide {index + 1}
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mobile-controls flex items-center justify-between px-12 py-4">
+          <div className="mobile-controls flex items-center justify-between p-4">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
+
+            <div className="flex gap-2">
+              {tiles.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentSlide === index
+                      ? 'bg-gray-900 scale-125'
+                      : 'bg-gray-400'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={currentSlide === index ? 'true' : undefined}
+                />
+              ))}
+            </div>
 
             <button
               onClick={nextSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </button>
           </div>
         </div>

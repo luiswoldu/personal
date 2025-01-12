@@ -86,7 +86,7 @@ const Work = () => {
             ))}
           </div>
 
-          <div className="mobile-controls flex items-center justify-between px-12 py-4">
+          <div className="mobile-controls flex items-center justify-between p-4">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
@@ -94,6 +94,22 @@ const Work = () => {
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
+
+            <div className="flex gap-2">
+              {tiles.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentSlide === index
+                      ? 'bg-gray-900 scale-125'
+                      : 'bg-gray-400'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={currentSlide === index ? 'true' : undefined}
+                />
+              ))}
+            </div>
 
             <button
               onClick={nextSlide}

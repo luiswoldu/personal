@@ -60,7 +60,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 25, delay: 0.2 }}
           >
             ABOUT
           </motion.span>
@@ -69,7 +69,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.4 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 25, delay: 0.4 }}
           >
             WORK
           </motion.span>
@@ -78,7 +78,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.6 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 25, delay: 0.6 }}
           >
             CONTACT
           </motion.span>

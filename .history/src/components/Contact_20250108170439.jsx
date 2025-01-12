@@ -20,18 +20,16 @@ const Contact = () => {
 
   return (
     <div
-    style={{
-      height: '440px',  // Reduced height by 30% from 550px
-      backgroundColor: 'white',
-      position: 'relative',
-      zIndex: 1,
-      margin: 0,
-      padding: '120px 0 28px 0', // Keep the 28px padding at the bottom
-      width: '100%',
-    }}
-  >
-  
-    
+      style={{
+        height: '550px',
+        backgroundColor: 'white',
+        position: 'relative',
+        zIndex: 1,
+        margin: 0,
+        padding: '120px 0 40px 0',
+        width: '100%',
+      }}
+    >
       <h1
         ref={titleRef}
         className={`text-6xl md:text-7xl font-bold text-center tracking-tight ${
@@ -44,12 +42,11 @@ const Contact = () => {
       <a
         ref={emailRef}
         href="mailto:wecare@ju.st"
-        style={{ color: '#555' }}
         className={`block text-center mt-5 ${
           isLoaded ? (emailInView ? 'animate-email' : 'hidden-email') : ''
         }`}
       >
-        luiswoldu@gmail.com
+        wecare@ju.st
       </a>
     </div>
   );

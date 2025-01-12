@@ -86,7 +86,7 @@ const Work = () => {
             ))}
           </div>
 
-          <div className="mobile-controls flex items-center justify-between px-12 py-4">
+          <div className="mobile-controls flex items-center justify-between p-4">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"

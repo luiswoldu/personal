@@ -56,33 +56,30 @@ const TabBar = () => {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <button style={getButtonStyle('about')}>
-          <motion.span
-            initial={{ opacity: 0, x: -30 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.2 }}
-          >
-            ABOUT
-          </motion.span>
-        </button>
-        <button style={getButtonStyle('work')}>
-          <motion.span
-            initial={{ opacity: 0, x: -30 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.4 }}
-          >
-            WORK
-          </motion.span>
-        </button>
-        <button style={getButtonStyle('contact')}>
-          <motion.span
-            initial={{ opacity: 0, x: -30 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.6 }}
-          >
-            CONTACT
-          </motion.span>
-        </button>
+        <motion.button 
+          style={getButtonStyle('about')}
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.2 }}
+        >
+          ABOUT
+        </motion.button>
+        <motion.button 
+          style={getButtonStyle('work')}
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.4 }}
+        >
+          WORK
+        </motion.button>
+        <motion.button 
+          style={getButtonStyle('contact')}
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.6 }}
+        >
+          CONTACT
+        </motion.button>
       </div>
     </div>
   );

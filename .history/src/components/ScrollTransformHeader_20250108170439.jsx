@@ -24,15 +24,14 @@ const ScrollTransformHeader = () => {
         height: initialHeight + (124 - initialHeight) * normalizedProgress
       };
     } else {
-      // Increase the shrinking speed by using a larger multiplier (e.g., 4 instead of 2)
-      const normalizedProgress = (progress - 0.5) * 4; // Faster shrinking
+      const normalizedProgress = (progress - 0.5) * 2;
       return {
         width: window.innerWidth,
         height: 124 * (1 - normalizedProgress)
       };
     }
   };
-  
+
   const dimensions = getAnimatedDimensions(scrollProgress);
   const translateY = -218 * scrollProgress;
 
