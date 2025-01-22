@@ -4,18 +4,12 @@ const Introduction = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 50) {
-        setTimeout(() => {
-          setIsVisible(true);
-        }, 200);
-      } else {
-        setIsVisible(false);
-      }
+    const handleHeaderExpansion = (event) => {
+      setIsVisible(event.detail.isFullyExpanded);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('headerExpansionComplete', handleHeaderExpansion);
+    return () => window.removeEventListener('headerExpansionComplete', handleHeaderExpansion);
   }, []);
 
   return (
@@ -28,11 +22,12 @@ const Introduction = () => {
         padding: '0 20px',
         backgroundColor: 'white',
         opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.2s ease-in',
+        transition: 'opacity 0.5s ease-in',
         position: 'relative',
         zIndex: 1,
         marginTop: '-80vh',
-        marginBottom: '30vh'
+        marginBottom: '30vh',
+        pointerEvents: isVisible ? 'auto' : 'none'
       }}
     >
       <p 

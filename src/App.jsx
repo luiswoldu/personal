@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import TabBar from './components/TabBar'
-import ScrollTransformHeader from './components/ScrollTransformHeader.jsx'
+import ScrollTransformHeader from './components/ScrollTransformHeader'
 import Introduction from './components/Introduction'
 import Work from './components/Work'
 import Contact from './components/Contact'

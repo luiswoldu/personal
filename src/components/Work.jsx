@@ -7,17 +7,17 @@ const Work = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const tiles = [
-    { id: 1, class: 'small-tile small1' },
-    { id: 2, class: 'small-tile small2' },
-    { id: 3, class: 'small-tile small3' },
-    { id: 4, class: 'small-tile small4' },
-    { id: 5, class: 'small-tile small5' },
-    { id: 6, class: 'small-tile small6' },
-    { id: 7, class: 'small-tile small7' },
-    { id: 8, class: 'small-tile small8' },
-    { id: 9, class: 'large-tile large1' },
-    { id: 10, class: 'large-tile large2' },
-    { id: 11, class: 'large-tile large3' },
+    { id: 1, class: 'small-tile small1', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png' },
+    { id: 2, class: 'small-tile small2', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/6784e3a165175a45b10387f9_24_WMT_Website.webp' },
+    { id: 3, class: 'small-tile small3', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/1e480d205313101.66b9054f93adc.jpg' },
+    { id: 4, class: 'small-tile small4', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e03117213434705.674655b40ab2d.png' },
+    { id: 5, class: 'small-tile small5', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/6784e3a2ada454ed0def11a1_27_WMT_Website.webp' },
+    { id: 6, class: 'small-tile small6', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/66f1173c4fff3788da542b26_9.%20IMPOSSIBLE_STILLS_KOP_Typography%20System%2001.jpg.webp' },
+    { id: 7, class: 'small-tile small7', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/ec9c49202323657.6686bc03f0c5d.png' },
+    { id: 8, class: 'small-tile small8', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a16f4e198756767.6646257ac60f5.jpg' },
+    { id: 9, class: 'large-tile large1', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/5df4a6213434705.674655b409e49.png' },
+    { id: 10, class: 'large-tile large2', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/fc9361213434705.674655b40b33a.png' },
+    { id: 11, class: 'large-tile large3', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/597ad3202323657.66842511822b6.png' },
   ];
 
   useEffect(() => {
@@ -77,12 +77,12 @@ const Work = () => {
                   currentSlide === index ? 'opacity-100' : 'opacity-0'
                 }`}
                 aria-hidden={currentSlide !== index}
-              >
-                <div
-                  className="mobile-tile-inner w-full h-full flex items-center justify-center text-white"
-                  style={{ backgroundColor: `hsl(${index * 36}, 70%, 50%)` }}
-                />
-              </div>
+                style={{
+                  backgroundImage: `url(${tile.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
             ))}
           </div>
 
@@ -110,7 +110,11 @@ const Work = () => {
             <div
               key={tile.id}
               className={`gallery-item ${tile.class}`}
-              data-number={tile.id}
+              style={{
+                backgroundImage: `url(${tile.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             />
           ))}
         </div>
