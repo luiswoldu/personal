@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from 'react';
+import { useSpring, animated } from 'react-spring';
+
+const MobileScrollHeader = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const maxScroll = 200; // Scroll distance for the animation
+
+  // Update scrollY state based on window scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      setScrollY(currentScroll > maxScroll ? maxScroll : currentScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Define animation styles based on scrollY
+  const animationStyles = useSpring({
+    height: 283 + (420 * (scrollY / maxScroll)) /* 282px initial height + 420px expansion */,
+    opacity: scrollY >= maxScroll ? 0 : 1,
+    config: {
+      tension: 220,  // Fade out adjustment
+      friction: 24,  // Fade out adjustment
+      duration: scrollY >= maxScroll ? 400 : 10, // Fade out adjustment
+    },
+  });
+
+  return (
+    <animated.div
+      style={{
+        ...animationStyles,
+        position: 'fixed',
+        top: '50%', // sets the red rectangle starting point vertically
+        left: '50%', // sets the red rectangle starting point horizontally
+        transform: 'translate(-50%, -42%)', 
+        width: '100%',
+        maxWidth: '100%', // Ensures edge-to-edge width
+        backgroundColor: 'red',
+        zIndex: -1, // bug fix! work section no longer covered by the ScrollHead
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'white',
+        fontSize: '1.5rem',
+        overflow: 'hidden', // Prevent content overflow
+      }}
+    >
+      <img 
+        src="https://www.coupdemainmagazine.com/sites/default/files/article/17096/show-17096-1573593318.jpg"
+        alt="Mobile Header"
+        style={{
+          width: '100%',
+          height: '200%',
+          objectFit: 'contain'
+        }}
+      />
+    </animated.div>
+  );
+};
+
+export default MobileScrollHeader; 

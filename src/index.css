@@ -89,6 +89,7 @@ html, body, #root, #app {
     color: white;
     opacity: 1;
     transform: none;
+    
   }
 
   /* Reset all positioning for mobile */

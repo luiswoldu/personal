@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import './Introduction.css';
 
 const Introduction = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // Set to true by default for testing
 
   useEffect(() => {
     const handleHeaderExpansion = (event) => {
@@ -13,41 +14,13 @@ const Introduction = () => {
   }, []);
 
   return (
-    <div 
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '50vh',
-        padding: '0 20px',
-        backgroundColor: 'white',
-        opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.5s ease-in',
-        position: 'relative',
-        zIndex: 1,
-        marginTop: '-80vh',
-        marginBottom: '30vh',
-        pointerEvents: isVisible ? 'auto' : 'none'
-      }}
-    >
-      <p 
-        style={{
-          maxWidth: '600px',
-          textAlign: 'left',
-          lineHeight: '1.6',
-          fontSize: '18px',
-          fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-          color: '#666666',
-          paddingTop: '60px',
-          fontWeight: '400'
-        }}
-      >
-        Welcome, I'm James Owen, a British artist and designer based in San Francisco.
+    <div className={`introduction-container ${isVisible ? 'visible' : 'hidden'}`}>
+      <p className="introduction-text">
+        Hey, I'm Luis, a product designer and artist based in Toronto.
         <br /><br />
-        As a former Creative Director at ManvsMachine, I've collaborated with brands such as Apple, Nike, Google, and Xbox. Together, we created remarkable projects that garnered worldwide recognition, including D&AD Pencils, Cannes Gold Lions, and many more.
+        I've led product and interface design for my startups, Chef+ and Perival, with the goal of merging sustainability with design. Currently, I'm creating a new tool to help people plan their time while learning the latest AI tools.
         <br /><br />
-        Currently, I'm creating groundbreaking experiences with the Apple Design Team while consuming copious amounts of tea.
-      </p>
+        Outside of design, I'm a passionate filmmaker and chef.</p>
     </div>
   );
 };
