@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 const TabBar = () => {
   const [activeSection, setActiveSection] = useState('none');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,16 +20,30 @@ const TabBar = () => {
       }
     };
 
+    const handleResize = () => {
+      const currentIsMobile = window.innerWidth <= 480;
+      if (currentIsMobile !== isMobile) {
+        setIsMobile(currentIsMobile);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleResize);
+
+    // Initial check in case the window size has changed before the event listeners were added
+    handleResize();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobile]);
 
   const getButtonStyle = (buttonName) => ({
     backgroundColor: '#f1f1f1',
     margin: '0 8px',
     padding: '15px 20px',
-    paddingTop: '64px',
-    paddingBottom: '40px',
+    paddingTop: '30px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     fontSize: '10.27px',
@@ -44,7 +59,7 @@ const TabBar = () => {
       className="tab-bar" 
       style={{ 
         backgroundColor: '#f1f1f1',
-        minHeight: '60px',
+        minHeight: isMobile ? '70px' : '118px',
         position: 'fixed',
         top: 0,
         left: 0,

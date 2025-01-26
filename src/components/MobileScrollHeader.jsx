@@ -48,7 +48,7 @@ const MobileScrollHeader = () => {
       }}
     >
       <img 
-        src="https://www.coupdemainmagazine.com/sites/default/files/article/17096/show-17096-1573593318.jpg"
+        src="https://media.gq.com/photos/6520818feb9535ffe59d663a/master/w_1600,c_limit/GQ1123_Chalamet_D_14.jpg"
         alt="Mobile Header"
         style={{
           width: '100%',

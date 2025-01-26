@@ -8,11 +8,27 @@ import Contact from './components/Contact'
 import Footer from './components/Footer.jsx'
 
 function App() {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 480);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <TabBar />
-      <div style={{ paddingTop: '60px', margin: 0, padding: 0, width: '100%' }}>
-        <ScrollTransformHeader />
+      <div style={{ 
+        paddingTop: isMobile ? '100px' : '60px', 
+        margin: 0, 
+        padding: 0, 
+        width: '100%' 
+      }}>        <ScrollTransformHeader />
         <Introduction />
         <Work />
         <Contact />
