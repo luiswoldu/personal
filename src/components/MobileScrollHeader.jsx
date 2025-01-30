@@ -18,7 +18,7 @@ const MobileScrollHeader = () => {
 
   // Define animation styles based on scrollY
   const animationStyles = useSpring({
-    height: 283 + (420 * (scrollY / maxScroll)) /* 282px initial height + 420px expansion */,
+    height: 282 + (356 * (scrollY / maxScroll)) /* 282px initial height + 420px expansion */,
     opacity: scrollY >= maxScroll ? 0 : 1,
     config: {
       tension: 220,  // Fade out adjustment
@@ -32,7 +32,7 @@ const MobileScrollHeader = () => {
       style={{
         ...animationStyles,
         position: 'fixed',
-        top: '50%', // sets the red rectangle starting point vertically
+        top: '46%', // sets the red rectangle starting point vertically
         left: '50%', // sets the red rectangle starting point horizontally
         transform: 'translate(-50%, -42%)', 
         width: '100%',
@@ -48,7 +48,7 @@ const MobileScrollHeader = () => {
       }}
     >
       <img 
-        src="https://media.gq.com/photos/6520818feb9535ffe59d663a/master/w_1600,c_limit/GQ1123_Chalamet_D_14.jpg"
+        src="https://i.imgur.com/oGJkg2a.jpeg"
         alt="Mobile Header"
         style={{
           width: '100%',
