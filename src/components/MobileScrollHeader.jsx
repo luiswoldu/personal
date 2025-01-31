@@ -32,7 +32,7 @@ const MobileScrollHeader = () => {
       style={{
         ...animationStyles,
         position: 'fixed',
-        top: '49%', // sets the red rectangle starting point vertically
+        top: '50%', // sets the red rectangle starting point vertically
         left: '50%', // sets the red rectangle starting point horizontally
         transform: 'translate(-50%, -42%)', 
         width: '100%',

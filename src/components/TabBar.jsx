@@ -57,8 +57,8 @@ const TabBar = () => {
   const getButtonStyle = (buttonName) => ({
     backgroundColor: '#f1f1f1',
     margin: '0 8px',
-    padding: '15px 20px',
-    paddingTop: '30px',
+    padding: isMobile ? '41px 20px' : '20px 40px',
+    paddingTop: isMobile ? '40px' : '38px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     fontSize: '10.27px',
@@ -74,7 +74,7 @@ const TabBar = () => {
       className="tab-bar" 
       style={{ 
         backgroundColor: '#f1f1f1',
-        minHeight: isMobile ? '70px' : '118px',
+        minHeight: isMobile ? '70px' : '116px',
         position: 'fixed',
         top: 0,
         left: 0,
