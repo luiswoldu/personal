@@ -32,12 +32,12 @@ const MobileScrollHeader = () => {
       style={{
         ...animationStyles,
         position: 'fixed',
-        top: '48%', // sets the red rectangle starting point vertically
+        top: '49%', // sets the red rectangle starting point vertically
         left: '50%', // sets the red rectangle starting point horizontally
         transform: 'translate(-50%, -42%)', 
         width: '100%',
         maxWidth: '100%', // Ensures edge-to-edge width
-        backgroundColor: 'blue',
+        backgroundColor: 'transparent',
         zIndex: -1, // bug fix! work section no longer covered by the ScrollHead
         display: 'flex',
         justifyContent: 'center',
@@ -51,8 +51,8 @@ const MobileScrollHeader = () => {
         src="https://i.imgur.com/UK6l5Ck.jpeg"
         alt="Mobile Header"
         style={{
-          width: '100%',
-          height: '240%',
+          width: 'auto',
+          height: 'auto',
           objectFit: 'contain'
         }}
       />

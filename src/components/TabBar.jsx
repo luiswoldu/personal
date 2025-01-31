@@ -5,17 +5,32 @@ const TabBar = () => {
   const [activeSection, setActiveSection] = useState('none');
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
+  // Add scroll breakpoints configuration
+  const scrollBreakpoints = {
+    desktop: {
+      about: { start: 490, end: 800 },
+      work: { start: 800, end: 1760 },
+      contact: { start: 1760, end: Infinity }
+    },
+    mobile: {
+      about: { start: 150, end: 620 },
+      work: { start: 620, end: 950 },
+      contact: { start: 950, end: Infinity }
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const breakpoints = isMobile ? scrollBreakpoints.mobile : scrollBreakpoints.desktop;
 
-      if (scrollY < 250) {
+      if (scrollY < breakpoints.about.start) {
         setActiveSection('none');
-      } else if (scrollY >= 250 && scrollY < 800) {
+      } else if (scrollY >= breakpoints.about.start && scrollY < breakpoints.about.end) {
         setActiveSection('about');
-      } else if (scrollY >= 800 && scrollY < 1760) {
+      } else if (scrollY >= breakpoints.work.start && scrollY < breakpoints.work.end) {
         setActiveSection('work');
-      } else if (scrollY >= 1760) {
+      } else if (scrollY >= breakpoints.contact.start) {
         setActiveSection('contact');
       }
     };
@@ -75,7 +90,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 100, delay: 0.3 }}
           >
             ABOUT
           </motion.span>
@@ -84,7 +99,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.4 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 100, delay: 0.6 }}
           >
             WORK
           </motion.span>
@@ -93,7 +108,7 @@ const TabBar = () => {
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
-            transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.6 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 100, delay: 0.9 }}
           >
             CONTACT
           </motion.span>
