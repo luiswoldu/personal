@@ -18,7 +18,7 @@ const MobileScrollHeader = () => {
 
   // Define animation styles based on scrollY
   const animationStyles = useSpring({
-    height: 282 + (356 * (scrollY / maxScroll)) /* 282px initial height + 420px expansion */,
+    height: 201 + (356 * (scrollY / maxScroll)) /* 282px initial height + 420px expansion */,
     opacity: scrollY >= maxScroll ? 0 : 1,
     config: {
       tension: 220,  // Fade out adjustment

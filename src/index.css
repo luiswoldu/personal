@@ -32,13 +32,13 @@ html, body, #root, #app {
   }
 
   .gallery-item.animate {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 1.0s ease-out forwards;
   }
 
   @keyframes fadeInUp {
     0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(28px);
     }
     100% {
       opacity: 1;

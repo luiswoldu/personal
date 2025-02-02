@@ -43,7 +43,7 @@ const Contact = () => {
 
       <a
         ref={emailRef}
-        href="mailto:wecare@ju.st"
+        href="mailto:luiswoldu@gmail.com"
         style={{ color: '#555' }}
         className={`block text-center mt-5 ${
           isLoaded ? (emailInView ? 'animate-email' : 'hidden-email') : ''

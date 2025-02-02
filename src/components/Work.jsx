@@ -8,15 +8,15 @@ const Work = () => {
 
   const tiles = [
     { id: 1, class: 'small-tile small1', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png' },
-    { id: 2, class: 'small-tile small2', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/6784e3a165175a45b10387f9_24_WMT_Website.webp' },
+    { id: 2, class: 'small-tile small2', image: 'https://i.imgur.com/kR7uP9R.jpeg' },
     { id: 3, class: 'small-tile small3', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/1e480d205313101.66b9054f93adc.jpg' },
     { id: 4, class: 'small-tile small4', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e03117213434705.674655b40ab2d.png' },
-    { id: 5, class: 'small-tile small5', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/6784e3a2ada454ed0def11a1_27_WMT_Website.webp' },
-    { id: 6, class: 'small-tile small6', image: 'https://cdn.prod.website-files.com/66e83277a55e6a2d461de7d9/66f1173c4fff3788da542b26_9.%20IMPOSSIBLE_STILLS_KOP_Typography%20System%2001.jpg.webp' },
+    { id: 5, class: 'small-tile small5', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/e71891218263627.679e7cd4ee0cc.jpg' },
+    { id: 6, class: 'small-tile small6', image: 'https://i.imgur.com/xCxOyXP.jpeg' },
     { id: 7, class: 'small-tile small7', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/ec9c49202323657.6686bc03f0c5d.png' },
-    { id: 8, class: 'small-tile small8', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a16f4e198756767.6646257ac60f5.jpg' },
+    { id: 8, class: 'small-tile small8', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c7ab1d218261391.679e7210b6cb5.jpg' },
     { id: 9, class: 'large-tile large1', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/5df4a6213434705.674655b409e49.png' },
-    { id: 10, class: 'large-tile large2', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/fc9361213434705.674655b40b33a.png' },
+    { id: 10, class: 'large-tile large2', image: 'https://i.imgur.com/9es4qWJ.jpeg' },
     { id: 11, class: 'large-tile large3', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/597ad3202323657.66842511822b6.png' },
   ];
 
