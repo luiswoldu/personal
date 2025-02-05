@@ -13,9 +13,23 @@ const TabBar = () => {
       contact: { start: 1760, end: Infinity }
     },
     mobile: {
-      about: { start: 150, end: 620 },
-      work: { start: 620, end: 950 },
-      contact: { start: 950, end: Infinity }
+      about: { start: 150, end: 779 },
+      work: { start: 780, end: 1220 },
+      contact: { start: 1221, end: Infinity }
+    }
+  };
+
+  // Add new configuration for scroll-to positions
+  const scrollToPositions = {
+    desktop: {
+      about: 700,
+      work: 1350,
+      contact: 2100
+    },
+    mobile: {
+      about: 570,
+      work: 1150,
+      contact: 1480
     }
   };
 
@@ -69,6 +83,14 @@ const TabBar = () => {
     border: 'none',
   });
 
+  const handleTabClick = (section) => {
+    const positions = isMobile ? scrollToPositions.mobile : scrollToPositions.desktop;
+    window.scrollTo({
+      top: positions[section],
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div 
       className="tab-bar" 
@@ -86,7 +108,10 @@ const TabBar = () => {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <button style={getButtonStyle('about')}>
+        <button 
+          style={getButtonStyle('about')}
+          onClick={() => handleTabClick('about')}
+        >
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -95,7 +120,10 @@ const TabBar = () => {
             ABOUT
           </motion.span>
         </button>
-        <button style={getButtonStyle('work')}>
+        <button 
+          style={getButtonStyle('work')}
+          onClick={() => handleTabClick('work')}
+        >
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -104,7 +132,10 @@ const TabBar = () => {
             WORK
           </motion.span>
         </button>
-        <button style={getButtonStyle('contact')}>
+        <button 
+          style={getButtonStyle('contact')}
+          onClick={() => handleTabClick('contact')}
+        >
           <motion.span
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 

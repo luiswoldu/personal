@@ -34,7 +34,7 @@ const MobileScrollHeader = () => {
         position: 'fixed',
         top: '50%', // sets the red rectangle starting point vertically
         left: '50%', // sets the red rectangle starting point horizontally
-        transform: 'translate(-50%, -42%)', 
+        transform: 'translate(-50%, -47%)', 
         width: '100%',
         maxWidth: '100%', // Ensures edge-to-edge width
         backgroundColor: 'transparent',
@@ -42,8 +42,6 @@ const MobileScrollHeader = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'white',
-        fontSize: '1.5rem',
         overflow: 'hidden', // Prevent content overflow
       }}
     >
@@ -53,7 +51,9 @@ const MobileScrollHeader = () => {
         style={{
           width: 'auto',
           height: 'auto',
-          objectFit: 'contain'
+          objectFit: 'contain',
+          position: 'relative',
+          top: '65px'
         }}
       />
     </animated.div>

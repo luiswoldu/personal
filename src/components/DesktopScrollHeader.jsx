@@ -25,7 +25,7 @@ const DesktopScrollHeader = ({ scrollProgress }) => {
 
   const fadeStyle = useSpring({
     opacity: scrollProgress < 0.7 ? 1 : 1 - (scrollProgress - 0.7) * 3.33,
-    config: { tension: 240, friction: 20, duration: undefined }
+    config: { tension: 140, friction: 20, duration: undefined }
   });
 
   return (
@@ -39,15 +39,17 @@ const DesktopScrollHeader = ({ scrollProgress }) => {
       }}
     >
       <img
-        src="https://media.gq.com/photos/652083f621c53954bf68f703/master/w_1600,c_limit/GQ1123_Chalamet_03.jpg"
+        src="https://i.imgur.com/cRutwR9.jpeg"
         alt=""
         style={{
-          width: '100%',
-          height: '100%',
+          width: `${initialDesktopWidth * 1.79}px`,
+          height: `${initialDesktopHeight * 1.79}px`,
           objectFit: 'cover',
           objectPosition: 'center',
-          transition: 'transform 0.3s ease',
-          transform: 'scale(1)'
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -47%)'
         }}
       />
     </div>
