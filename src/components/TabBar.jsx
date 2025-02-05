@@ -13,8 +13,8 @@ const TabBar = () => {
       contact: { start: 1760, end: Infinity }
     },
     mobile: {
-      about: { start: 150, end: 779 },
-      work: { start: 780, end: 1220 },
+      about: { start: 120, end: 740 },
+      work: { start: 740, end: 1220 },
       contact: { start: 1221, end: Infinity }
     }
   };
