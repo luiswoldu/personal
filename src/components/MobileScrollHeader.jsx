@@ -34,7 +34,7 @@ const MobileScrollHeader = () => {
         position: 'fixed',
         top: '50%', // sets the red rectangle starting point vertically
         left: '50%', // sets the red rectangle starting point horizontally
-        transform: 'translate(-50%, -48%)', 
+        transform: 'translate(-50%, -50%)', 
         width: '100%',
         maxWidth: '100%', // Ensures edge-to-edge width
         backgroundColor: 'transparent',
