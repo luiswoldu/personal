@@ -1,0 +1,35 @@
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(234, 234, 234, 0.75);
+  border-radius: 50%;
+  pointer-events: none; /* so that it doesn't block clicks */
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, transform 0.15s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor--active {
+  /* Shrink by 8px (50px -> 42px) when pressed */
+  width: 42px;
+  height: 42px;
+}
+
+.cursor-icon {
+  width: 24px;
+  height: 24px;
+  /* Optionally adjust the color of the icon */
+  fill: currentColor;
+}
+
+/* In this example the chevron is rendered only when isHoverImage is true.
+   You could also use a CSS rule like this if the icon were always present:
+   .custom-cursor:not(.cursor--hover-image) .cursor-icon {
+     display: none;
+   } */ 

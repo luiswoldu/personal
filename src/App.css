@@ -1,8 +1,9 @@
-/* Remove any default padding */
+/* Remove any default padding and hide the native cursor globally */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
 }
 
 #root {

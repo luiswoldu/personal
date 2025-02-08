@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CustomCursor from './CustomCursor';
+import './Work.css';
 
 const Work = () => {
   const observerRef = useRef(null);
@@ -66,17 +68,52 @@ const Work = () => {
   };
 
   return (
-    <div className="relative bg-white overflow-hidden">
-      {isMobile ? (
-        <div className="mobile-container">
-          <div className="mobile-content w-[328px] h-[246px] mx-auto relative">
-            {tiles.map((tile, index) => (
+    <section className="work-section">
+      <CustomCursor />
+      <div className="relative bg-white overflow-hidden">
+        {isMobile ? (
+          <div className="mobile-container">
+            <div className="mobile-content w-[328px] h-[246px] mx-auto relative">
+              {tiles.map((tile, index) => (
+                <div
+                  key={tile.id}
+                  className={`mobile-tile absolute inset-0 transition-opacity duration-500 ${
+                    currentSlide === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  aria-hidden={currentSlide !== index}
+                  style={{
+                    backgroundImage: `url(${tile.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+              ))}
+            </div>
+
+            <div className="mobile-controls flex items-center justify-between px-12 py-4">
+              <button
+                onClick={prevSlide}
+                className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="gallery-grid">
+            {tiles.map((tile) => (
               <div
                 key={tile.id}
-                className={`mobile-tile absolute inset-0 transition-opacity duration-500 ${
-                  currentSlide === index ? 'opacity-100' : 'opacity-0'
-                }`}
-                aria-hidden={currentSlide !== index}
+                className={`gallery-item ${tile.class}`}
                 style={{
                   backgroundImage: `url(${tile.image})`,
                   backgroundSize: 'cover',
@@ -85,41 +122,9 @@ const Work = () => {
               />
             ))}
           </div>
-
-          <div className="mobile-controls flex items-center justify-between px-12 py-4">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="gallery-grid">
-          {tiles.map((tile) => (
-            <div
-              key={tile.id}
-              className={`gallery-item ${tile.class}`}
-              style={{
-                backgroundImage: `url(${tile.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-          ))}
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </section>
   );
 };
 
