@@ -38,7 +38,7 @@ const Contact = () => {
           isLoaded ? (titleInView ? 'animate-text' : 'hidden-text') : ''
         }`}
       >
-        Litmus
+        Contact
       </h1>
 
       <a
