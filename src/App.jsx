@@ -1,11 +1,13 @@
-import React from 'react'
-import './App.css'
-import TabBar from './components/TabBar'
-import ScrollTransformHeader from './components/ScrollTransformHeader'
-import Introduction from './components/Introduction'
-import Work from './components/Work'
-import Contact from './components/Contact'
-import Footer from './components/Footer.jsx'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import TabBar from './components/TabBar';
+import ScrollTransformHeader from './components/ScrollTransformHeader';
+import Introduction from './components/Introduction';
+import Work from './components/Work';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ProjectDetail from './components/ProjectDetail';
 
 function App() {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 480);
@@ -21,20 +23,28 @@ function App() {
   }, []);
 
   return (
-    <>
-      <TabBar />
-      <div style={{ 
-        paddingTop: isMobile ? '100px' : '60px', 
-        margin: 0, 
-        padding: 0, 
-        width: '100%' 
-      }}>        <ScrollTransformHeader />
-        <Introduction />
-        <Work />
-        <Contact />
-        <Footer />
-      </div>
-    </>
+    <Router basename="/my-animation-project">
+      <Routes>
+        <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route path="/" element={
+          <>
+            <TabBar />
+            <div style={{ 
+              paddingTop: isMobile ? '100px' : '60px', 
+              margin: 0, 
+              padding: 0, 
+              width: '100%' 
+            }}>
+              <ScrollTransformHeader />
+              <Introduction />
+              <Work />
+              <Contact />
+              <Footer />
+            </div>
+          </>
+        } />
+      </Routes>
+    </Router>
   );
 }
 
