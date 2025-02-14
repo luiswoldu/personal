@@ -13,8 +13,8 @@ const ProjectDetail = () => {
     const tiles = [
       { 
         id: 1, 
-        title: 'Success', 
-        description: 'Chef+ is a platform that connects chefs with customers, allowing them to find and book chefs for their events. It is a web application that allows chefs to create a profile, upload their work, and search for customers.',
+        title: 'Chef+', 
+        description: 'Two workflows, ignore the 1st failed build with the correct commit message, the second automated workflow works',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png' 
       },
       { 
