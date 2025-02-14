@@ -14,7 +14,7 @@ const ProjectDetail = () => {
       { 
         id: 1, 
         title: 'Chef+', 
-        description: 'Two workflows, ignore the 1st failed build with the correct commit message, the second automated workflow works',
+        description: 'Testing workflow and build at 9:10PM',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png' 
       },
       { 
