@@ -16,7 +16,7 @@ const ProjectDetail = () => {
         title: 'Chef+',
         projectTitle: 'A Platform Connecting Chefs with Food Enthusiasts',
         description: 'Chef+ is a platform that connects chefs with customers, allowing them to find and book chefs for their events. It is a web application that allows chefs to create a profile, upload their work, and search for customers.',
-        description2: 'Chef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
+        description2: 'From a custom-designed font to the embrace of Army Green, the identity is built to authentically express the unique culture and characteristics of the Army.',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png',
         gridImages: [
           '/path-to-grid-image-1.jpg',
@@ -29,12 +29,14 @@ const ProjectDetail = () => {
         id: 2, 
         title: 'Perival', 
         description: 'Climate change is the greatest challenge humanity has collectively faced. We can only solve it with the government and industry taking action. However, individuals and businesses also play a critical role in driving change. Our SaaS climate tracker empowers organizations to measure, manage, and reduce their carbon footprint with real-time data insights, actionable recommendations, and automated reporting. By making sustainability efforts transparent and data-driven, we help companies align with global climate goals, comply with evolving regulations, and contribute to a greener future.',
+        description2: 'Chef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/597ad3202323657.66842511822b6.png' 
       },
       { 
         id: 3, 
         title: 'Chef Kiss', 
         description: 'Another detailed project description here. This one also contains multiple lines of text to show how the expansion works. The dark overlay becomes more prominent when the description is expanded, helping to maintain text readability against the background image.',
+        description2: 'Chef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
         image: 'https://i.imgur.com/kR7uP9R.jpeg' 
       },
 
@@ -162,7 +164,7 @@ const ProjectDetail = () => {
         <div className="mt-16 max-w-3xl">
           <h2 className="text-3xl font-light mb-6">About the Project</h2>
           <p className="text-lg leading-relaxed text-gray-800">
-            {project.longDescription || project.description}
+            {project.description2 || project.description}
           </p>
         </div>
       </div>
