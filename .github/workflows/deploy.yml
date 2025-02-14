@@ -14,19 +14,24 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (if needed)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install  # Change this if you use yarn/pnpm
+        run: npm install
 
       - name: Build Project
-        run: npm run build  # Make sure this generates your output folder
+        run: npm run build  # Make sure this generates files in ./dist
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Change this to your build output folder
+      - name: Deploy to Main Branch
+        run: |
+          mkdir -p public
+          mv dist/* public/
+          touch public/.nojekyll  # Prevents Jekyll from interfering
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git add public
+          git commit -m "Deploy site"
+          git push origin main
