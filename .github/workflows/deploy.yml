@@ -1,15 +1,15 @@
-name: Deploy site from main branch 
-
+name: Deploy site from main branch
 on:
   push:
     branches:
-      - main  # Runs when you push to main
-  workflow_dispatch:  # Allows manual runs
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -18,20 +18,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build Project
-        run: npm run build  # Make sure this generates files in ./dist
+        run: npm run build
 
       - name: Deploy to Main Branch
         run: |
-          mkdir -p public
-          mv dist/* public/
-          touch public/.nojekyll  # Prevents Jekyll from interfering
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "github-actions"
-          git add public
-          git commit -m "Deploy site"
+          cp -r dist/* .
+          rm -rf dist
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Deploy site update"
           git push origin main
