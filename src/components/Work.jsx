@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import CustomCursor from './CustomCursor';
 import './Work.css';
 
 const Work = () => {
+  const navigate = useNavigate();
   const observerRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -67,6 +69,10 @@ const Work = () => {
     setCurrentSlide((prev) => (prev === 0 ? tiles.length - 1 : prev - 1));
   };
 
+  const handleTileClick = (id) => {
+    navigate(`/project/${id}`);
+  };
+
   return (
     <section className="work-section">
       <CustomCursor />
@@ -77,7 +83,8 @@ const Work = () => {
               {tiles.map((tile, index) => (
                 <div
                   key={tile.id}
-                  className={`mobile-tile absolute inset-0 transition-opacity duration-500 ${
+                  onClick={() => handleTileClick(tile.id)}
+                  className={`mobile-tile absolute inset-0 transition-opacity duration-500 cursor-pointer ${
                     currentSlide === index ? 'opacity-100' : 'opacity-0'
                   }`}
                   aria-hidden={currentSlide !== index}
@@ -113,7 +120,8 @@ const Work = () => {
             {tiles.map((tile) => (
               <div
                 key={tile.id}
-                className={`gallery-item ${tile.class}`}
+                onClick={() => handleTileClick(tile.id)}
+                className={`gallery-item ${tile.class} cursor-pointer`}
                 style={{
                   backgroundImage: `url(${tile.image})`,
                   backgroundSize: 'cover',
