@@ -1,16 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [animateButton, setAnimateButton] = useState(false);
 
   // Update useEffect to depend on id
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);  // Add id as a dependency
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // --- Calculate the breakpoint ---
+      const breakpoint = document.getElementById('next-project-section')?.offsetTop - window.innerHeight + 100; // Adjust 100 as needed
+
+      if (window.scrollY > breakpoint) {
+        setAnimateButton(true);
+      } else {
+        setAnimateButton(false); // Important: Reset the animation state
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll); // Cleanup
+  }, []); // Empty dependency array: run only on mount/unmount
 
   // You can fetch project details based on the ID
   const getProjectDetails = (projectId) => {
@@ -209,16 +227,23 @@ const ProjectDetail = () => {
         </div>
 
         {/* Next Project Button Section */}
-        <div className="flex justify-center mb-24">
-          <button
+        <div id="next-project-section" className="flex justify-center mb-24">
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={animateButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Conditional animation
+            transition={{
+              duration: 1.4,
+              delay: 0.6,
+              ease: "easeOut"
+            }}
             onClick={() => navigate(`/project/${parseInt(id) % 3 + 1}`)}
-            className="flex items-center justify-between w-[252px] h-[56px] rounded-full bg-[#f1f1f1] text-[#999] group text-[10.27px] font-bold pl-6 pr-4 transition-transform duration-300 ease-in-out hover:translate-x-2"
+            className="flex items-center justify-between w-[252px] h-[56px] rounded-full bg-[#f1f1f1] text-[#999] group text-[10.27px] font-bold pl-6 pr-4 transition-colors"
           >
-            <span className="uppercase text-[#999] group-hover:text-black transition-colors">Next Project</span>
-            <div className="rounded-full w-8 h-8 flex items-center justify-center bg-[white] transition-colors">
-              <ChevronRight className="w-5 h-5 text-[#FE3D00] group-hover:text-[#FE3D00] transition-colors" />
+            <span className="uppercase text-[#999] group-hover:text-black transition-colors duration-300">Next Project</span>
+            <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
+              <ChevronRight className="w-5 h-5 text-[#FE3D00] group-hover:text-[#FE3D00] transition-colors duration-300" />
             </div>
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>
