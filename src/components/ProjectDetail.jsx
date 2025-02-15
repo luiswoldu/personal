@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Plus, Minus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Update useEffect to depend on id
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);  // Add id as a dependency
 
   // You can fetch project details based on the ID
   const getProjectDetails = (projectId) => {
@@ -16,12 +21,17 @@ const ProjectDetail = () => {
         title: 'Chef+',
         projectTitle: 'A Platform Connecting Chefs with Food Enthusiasts',
         description: 'Chef+ is a platform that connects chefs with customers, allowing them to find and book chefs for their events. It is a web application that allows chefs to create a profile, upload their work, and search for customers.',
-        description2: 'From a custom-designed font to the embrace of Army Green, the identity is built to authentically express the unique culture and characteristics of the Army.',
+        description2: 'Title.\nFrom a custom-designed font to the embrace of Army Green, the identity is built to authentically express the unique culture and characteristics of the Army.',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/260e3c213434705.674655b409657.png',
         gridImages: [
           '/path-to-grid-image-1.jpg',
           '/path-to-grid-image-2.jpg',
           '/path-to-logo.png'
+        ],
+        secondGridImages: [
+          '/path-to-second-grid-main.jpg',
+          '/path-to-second-grid-1.jpg',
+          '/path-to-second-grid-2.jpg'
         ],
         logo: '/path-to-logo.png'
       },
@@ -29,14 +39,14 @@ const ProjectDetail = () => {
         id: 2, 
         title: 'Perival', 
         description: 'Climate change is the greatest challenge humanity has collectively faced. We can only solve it with the government and industry taking action. However, individuals and businesses also play a critical role in driving change. Our SaaS climate tracker empowers organizations to measure, manage, and reduce their carbon footprint with real-time data insights, actionable recommendations, and automated reporting. By making sustainability efforts transparent and data-driven, we help companies align with global climate goals, comply with evolving regulations, and contribute to a greener future.',
-        description2: 'Chef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
+        description2: 'Title.\nChef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/597ad3202323657.66842511822b6.png' 
       },
       { 
         id: 3, 
         title: 'Chef Kiss', 
         description: 'Another detailed project description here. This one also contains multiple lines of text to show how the expansion works. The dark overlay becomes more prominent when the description is expanded, helping to maintain text readability against the background image.',
-        description2: 'Chef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
+        description2: 'Title.\nChef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
         image: 'https://i.imgur.com/kR7uP9R.jpeg' 
       },
 
@@ -115,57 +125,100 @@ const ProjectDetail = () => {
       </div>
 
       {/* New Image Grid Section */}
-      <div className="min-h-screen pt-12" style={{ paddingLeft: '148px' }}>
-        <div className="grid grid-cols-12 gap-8">
+      <div className="min-h-screen" style={{ paddingLeft: '148px', paddingRight: '148px', paddingTop: '86px' }}>
+        <div className="grid grid-cols-10 gap-8 justify-center">
           {/* Left column with stacked images */}
-          <div className="col-span-4" style={{ height: '100%' }}>
-            {/* We use inline styles for dynamic height calculation */}
-            <div className="relative" style={{ height: '100%' }}>
-              <div
-                className="absolute top-0 left-0 w-full"
-                style={{
-                  height: 'calc((100% - 1.25rem) / 2)', /* 1.25rem is equivalent to space-y-5 */
-                }}
-              >
-                <img
-                  src={project.gridImages?.[0] || project.image}
-                  alt="Project view 1"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-              <div
-                className="absolute bottom-0 left-0 w-full"
-                style={{ height: 'calc((100% - 1.25rem) / 2)' }}
-              >
-                <img
-                  src={project.gridImages?.[1] || project.image}
-                  alt="Project view 2"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
+          <div className="col-span-4 flex flex-col gap-8 justify-between h-full">
+            {/* Calculate height based on aspect ratio and gap */}
+            <div className="relative w-full" style={{ aspectRatio: '16/9', height: 'calc((100% - 0.5rem) / 2)' }}>
+              <img
+                src={project.gridImages?.[0] || project.image}
+                alt="Project view 1"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9', height: 'calc((100% - 0.5rem) / 2)' }}>
+              <img
+                src={project.gridImages?.[1] || project.image}
+                alt="Project view 2"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
           {/* Right column with larger image */}
-          <div className="col-span-7">
-            <div className="space-y-5">
-              <div className="relative w-full" style={{ aspectRatio: '1.5/1' }}>
-                <img
-                  src={project.gridImages?.[2] || project.logo || project.image}
-                  alt="Project main view"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            </div>  
+          <div className="col-span-6">
+            <div className="relative w-full" style={{ aspectRatio: '4/3.5' }}>
+              <img
+                src={project.gridImages?.[2] || project.logo || project.image}
+                alt="Project main view"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        {/* New Description Section */}
-        <div className="mt-16 max-w-3xl">
-          <h2 className="text-3xl font-light mb-6">About the Project</h2>
+        {/* Description Section */}
+        <div className="my-16 max-w-3xl text-left">
           <p className="text-lg leading-relaxed text-gray-800">
-            {project.description2 || project.description}
+            {project.description2 ? (
+              <>
+                <span className="font-bold">{project.description2.split('\n')[0]}</span>
+                {project.description2.split('\n').slice(1).map((line, index) => (
+                  <React.Fragment key={index}>
+                    <br />{line}
+                  </React.Fragment>
+                ))}
+              </>
+            ) : (
+              project.description
+            )}
           </p>
+        </div>
+
+        {/* Second Image Grid Section - Reversed Layout */}
+        <div className="grid grid-cols-10 gap-8 justify-center mb-16">
+          {/* Left column with larger image */}
+          <div className="col-span-6">
+            <div className="relative w-full" style={{ aspectRatio: '4/3.5' }}>
+              <img
+                src={project.secondGridImages?.[0] || project.image}
+                alt="Project second main view"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right column with stacked images */}
+          <div className="col-span-4 flex flex-col gap-8 justify-between h-full">
+            <div className="relative w-full" style={{ aspectRatio: '16/9', height: 'calc((100% - 0.5rem) / 2)' }}>
+              <img
+                src={project.secondGridImages?.[1] || project.image}
+                alt="Project second view 1"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9', height: 'calc((100% - 0.5rem) / 2)' }}>
+              <img
+                src={project.secondGridImages?.[2] || project.image}
+                alt="Project second view 2"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Next Project Button Section */}
+        <div className="flex justify-center mb-24">
+          <button
+            onClick={() => navigate(`/project/${parseInt(id) % 3 + 1}`)}
+            className="flex items-center justify-between w-[252px] h-[56px] rounded-full bg-[#f1f1f1] text-[#999] group text-[10.27px] font-bold pl-6 pr-4 transition-transform duration-300 ease-in-out hover:translate-x-2"
+          >
+            <span className="uppercase text-[#999] group-hover:text-black transition-colors">Next Project</span>
+            <div className="rounded-full w-8 h-8 flex items-center justify-center bg-[white] transition-colors">
+              <ChevronRight className="w-5 h-5 text-[#FE3D00] group-hover:text-[#FE3D00] transition-colors" />
+            </div>
+          </button>
         </div>
       </div>
     </div>
