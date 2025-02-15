@@ -241,7 +241,7 @@ const ProjectDetail = () => {
           >
             <span className="uppercase text-[#999] group-hover:text-black transition-colors duration-300">Next Project</span>
             <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
-              <ChevronRight className="w-5 h-5 text-[#FE3D00] group-hover:text-[#FE3D00] transition-colors duration-300" />
+              <ChevronRight className="w-6 h-6 text-[#FE3D00] group-hover:text-[#FE3D00] transition-colors duration-300" />
             </div>
           </motion.button>
         </div>
