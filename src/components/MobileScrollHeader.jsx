@@ -46,14 +46,15 @@ const MobileScrollHeader = () => {
       }}
     >
       <img 
-        src="https://i.imgur.com/UK6l5Ck.jpeg"
+        src="https://i.imgur.com/weLrNUD.jpeg"
         alt="Mobile Header"
         style={{
           width: 'auto',
           height: 'auto',
-          objectFit: 'contain',
+          objectFit: 'fill',
           position: 'relative',
-          top: '60px'
+          top: '0px',
+          transform: 'scale(1.35)'
         }}
       />
     </animated.div>

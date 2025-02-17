@@ -3,22 +3,24 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger the workflow when there are pushes to the 'main' branch
+      - main  # Triggers the workflow when pushing to 'main'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code
+      # Checkout the code with full history
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Required for pushing to gh-pages
 
       # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Ensure the correct Node.js version is used
+          node-version: '16'  # Ensure the correct Node.js version
 
       # Install dependencies
       - name: Install dependencies
@@ -28,13 +30,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # Debug: List files in the build directory
+      - name: List build output
+        run: ls -la ./dist
+
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Directory containing your built files
-
-      # Debug: List files in the build directory
-      - name: List build output
-        run: ls -la ./dist
+          publish_dir: ./dist  # Ensure this is correct
+          publish_branch: gh-pages  # Explicitly set the branch
+          force_orphan: true  # Ensures clean deployment
