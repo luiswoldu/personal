@@ -54,7 +54,7 @@ const MobileScrollHeader = () => {
           objectFit: 'fill',
           position: 'relative',
           top: '0px',
-          transform: 'scale(1.36)'
+          transform: 'scale(1.38)'
         }}
       />
     </animated.div>

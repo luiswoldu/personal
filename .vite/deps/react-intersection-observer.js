@@ -2,7 +2,7 @@
 import {
   __toESM,
   require_react
-} from "./chunk-JRE55LYH.js";
+} from "./chunk-LABQ442N.js";
 
 // node_modules/react-intersection-observer/dist/index.mjs
 var React = __toESM(require_react(), 1);
