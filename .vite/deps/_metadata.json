@@ -1,49 +1,49 @@
 {
-  "hash": "71a4ee7e",
-  "configHash": "dfe03746",
+  "hash": "5bc2a44e",
+  "configHash": "73d9d642",
   "lockfileHash": "4d9cf33b",
-  "browserHash": "0fc1a828",
+  "browserHash": "1a427517",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "826a8499",
+      "fileHash": "3dfec97f",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "c15cc833",
+      "fileHash": "105cfda0",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "45565fcb",
-      "needsInterop": false
-    },
-    "framer-motion": {
-      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
-      "file": "framer-motion.js",
-      "fileHash": "d39cf91c",
-      "needsInterop": false
-    },
-    "react-intersection-observer": {
-      "src": "../../node_modules/react-intersection-observer/dist/index.mjs",
-      "file": "react-intersection-observer.js",
-      "fileHash": "f2515995",
+      "fileHash": "fd7c6c9d",
       "needsInterop": false
     },
     "lucide-react": {
       "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
       "file": "lucide-react.js",
-      "fileHash": "5769a79d",
+      "fileHash": "a610d0af",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "4bd5efb6",
+      "needsInterop": false
+    },
+    "react-intersection-observer": {
+      "src": "../../node_modules/react-intersection-observer/dist/index.mjs",
+      "file": "react-intersection-observer.js",
+      "fileHash": "2ccbcea9",
       "needsInterop": false
     },
     "react-spring": {
       "src": "../../node_modules/react-spring/dist/react-spring.modern.mjs",
       "file": "react-spring.js",
-      "fileHash": "26ba8898",
+      "fileHash": "bed0e759",
       "needsInterop": false
     }
   },
