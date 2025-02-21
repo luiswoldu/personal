@@ -27,7 +27,7 @@ jobs:
         run: npm run build  # Ensure this produces files in ./dist
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist  # This should match the output directory of your build
 
