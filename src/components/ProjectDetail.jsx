@@ -87,7 +87,7 @@ const ProjectDetail = () => {
         className="absolute top-8 left-8 z-10 flex items-center text-white hover:text-gray-200 transition-colors"
       >
         <ChevronLeft className="w-5 h-5 mr-2" />
-        Ba
+        Back
       </button>
 
       {/* Hero Section */}
