@@ -56,17 +56,17 @@ const ProjectDetail = () => {
       { 
         id: 2, 
         title: 'Perival', 
-        description: 'Climate change is the greatest challenge humanity has collectively faced. We can only solve it with the government and industry taking action. However, individuals and businesses also play a critical role in driving change. Our SaaS climate tracker empowers organizations to measure, manage, and reduce their carbon footprint with real-time data insights, actionable recommendations, and automated reporting. By making sustainability efforts transparent and data-driven, we help companies align with global climate goals, comply with evolving regulations, and contribute to a greener future.',
-        description2: 'Title.\nChef+ was developed as a comprehensive solution to bridge the gap between professional chefs and customers seeking personalized culinary experiences.',
+        description: 'Climate change is the greatest challenge humanity has collectively faced. Introducing Perival. A web service that provides cities, businesses and employees with information on their environmental performance. By showing progress and providing frequent feedback, we improve communication between the general public and companies, sparking motivation and building a more sustainable economy.',
+        description2: 'All-in-one platform.\nPerival empowers employees to showcase their sustainability efforts, turning everyday actions into measurable impact. By leading with transparency, they inspire peers and set a new standard for companies to follow.',
         image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/597ad3202323657.66842511822b6.png',
         gridImages: [
           'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c7ab1d218261391.679e7210b6cb5.jpg',
-          'https://mir-s3-cdn-cf.behance.net/project_modules/1400/ec9c49202323657.6686bc03f0c5d.png',
-          '/path-to-logo.png'
+          'https://i.imgur.com/BaPEMx3.jpeg',
+          'https://i.imgur.com/qCcAhpW.jpeg'
         ],
         secondGridImages: [
-          '/path-to-second-grid-main.jpg',
-          '/path-to-second-grid-1.jpg',
+          'https://i.imgur.com/hLUPb0T.jpeg',
+          'https://i.imgur.com/vKPXmC2.jpeg',
           '/path-to-second-grid-2.jpg'
         ],
         logo: '/path-to-logo.png'
@@ -255,8 +255,8 @@ const ProjectDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={animateButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Conditional animation
             transition={{
-              duration: 1.4,
-              delay: 0.6,
+              duration: 1.2,
+              delay: 0.3,
               ease: "easeOut"
             }}
             onClick={() => navigate(`/project/${parseInt(id) % 3 + 1}`)}
