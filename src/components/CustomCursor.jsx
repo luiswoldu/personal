@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { ChevronRight } from 'lucide-react'
 import './CustomCursor.css'
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isActive, setIsActive] = useState(false)
-  const [isHoverTile, setIsHoverTile] = useState(false)
+  const [isHoverClickable, setIsHoverClickable] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 440)
 
   useEffect(() => {
@@ -14,18 +13,18 @@ const CustomCursor = () => {
       setIsMobile(window.innerWidth <= 440)
     }
 
-    // Update cursor position and whether it's over a tile on every mouse move
+    // Update cursor position and whether it's over a clickable element
     const onMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY })
-      // Check if the element under the cursor is inside a tile (.work-item) or project detail elements
+      // Check if the element under the cursor is clickable
       const element = document.elementFromPoint(e.clientX, e.clientY)
       if (element && (
-          element.closest('.work-item') || // Work section tiles
-          element.closest('.project-detail-clickable') // Add this class to clickable elements in ProjectDetail
+          element.closest('.work-item') || 
+          element.closest('.project-detail-clickable')
         )) {
-        setIsHoverTile(true)
+        setIsHoverClickable(true)
       } else {
-        setIsHoverTile(false)
+        setIsHoverClickable(false)
       }
     }
 
@@ -55,12 +54,9 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`custom-cursor ${isActive ? 'cursor--active' : ''}`}
+      className={`custom-cursor ${isActive ? 'cursor--active' : ''} ${isHoverClickable ? 'cursor--hover' : ''}`}
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
-    >
-      {/* Display the chevron icon only when hovering over a tile */}
-      {isHoverTile && <ChevronRight className="cursor-icon" />}
-    </div>
+    />
   )
 }
 

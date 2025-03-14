@@ -109,15 +109,17 @@ const ProjectDetail = () => {
     <div className="relative">
       {/* Back button */}
       <button 
-        onClick={() => navigate('/#work')}
-        className="absolute top-8 left-8 z-10 flex items-center text-white hover:text-gray-200 transition-colors project-detail-clickable"
+        onClick={() => navigate('/')}
+        className={`absolute top-8 left-8 z-10 flex items-center hover:opacity-80 transition-colors project-detail-clickable ${
+          id === '2' ? 'text-white' : 'text-black'
+        }`}
       >
         <ChevronLeft className="w-5 h-5 mr-2" />
         Back
       </button>
 
       {/* Hero Section */}
-      <div className="relative h-screen">
+      <div className="relative h-screen max-sm:h-[75vh]">
         {/* Background Image */}
         <img 
           src={project.image} 
@@ -128,7 +130,7 @@ const ProjectDetail = () => {
         
         {/* Subtle gradient overlay for non-expanded state - half height */}
         <div 
-          className={`absolute inset-x-0 bottom-0 h-[50vh] bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-500 ${
+          className={`absolute inset-x-0 bottom-0 h-[50vh] max-sm:h-[37.5vh] bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-500 ${
             isExpanded ? 'opacity-0' : 'opacity-100'
           }`}
         />
