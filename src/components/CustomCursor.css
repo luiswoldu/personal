@@ -1,3 +1,10 @@
+/* Only hide the default cursor on non-mobile screens */
+@media (min-width: 441px) {
+  * {
+    cursor: none !important;
+  }
+}
+
 .custom-cursor {
   position: fixed;
   left: 0;

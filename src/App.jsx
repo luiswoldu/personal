@@ -8,6 +8,7 @@ import Work from './components/Work';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 480);
@@ -24,26 +25,29 @@ function App() {
 
   return (
     <Router basename="/my-animation-project">
-      <Routes>
-        <Route path="/project/:id" element={<ProjectDetail />} />
-        <Route path="/" element={
-          <>
-            <TabBar />
-            <div style={{ 
-              paddingTop: isMobile ? '100px' : '60px', 
-              margin: 0, 
-              padding: 0, 
-              width: '100%' 
-            }}>
-              <ScrollTransformHeader />
-              <Introduction />
-              <Work />
-              <Contact />
-              <Footer />
-            </div>
-          </>
-        } />
-      </Routes>
+      <div className="app">
+        <CustomCursor />
+        <Routes>
+          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/" element={
+            <>
+              <TabBar />
+              <div style={{ 
+                paddingTop: isMobile ? '100px' : '60px', 
+                margin: 0, 
+                padding: 0, 
+                width: '100%' 
+              }}>
+                <ScrollTransformHeader />
+                <Introduction />
+                <Work />
+                <Contact />
+                <Footer />
+              </div>
+            </>
+          } />
+        </Routes>
+      </div>
     </Router>
   );
 }

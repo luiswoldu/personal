@@ -109,8 +109,8 @@ const ProjectDetail = () => {
     <div className="relative">
       {/* Back button */}
       <button 
-        onClick={() => navigate(-1)}
-        className="absolute top-8 left-8 z-10 flex items-center text-white hover:text-gray-200 transition-colors"
+        onClick={() => navigate('/#work')}
+        className="absolute top-8 left-8 z-10 flex items-center text-white hover:text-gray-200 transition-colors project-detail-clickable"
       >
         <ChevronLeft className="w-5 h-5 mr-2" />
         Back
@@ -149,7 +149,7 @@ const ProjectDetail = () => {
           {/* Expandable Description */}
           <div 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="relative"
+            className="relative project-detail-clickable"
           >
             <div className={`text-white text-2xl md:text-[19px] max-sm:text-[18px] font-light cursor-pointer transition-all duration-300 text-left ${
               isExpanded 
@@ -280,7 +280,7 @@ const ProjectDetail = () => {
               ease: "easeOut"
             }}
             onClick={() => navigate(`/project/${parseInt(id) % 3 + 1}`)}
-            className="flex items-center justify-between w-[252px] h-[56px] rounded-full bg-[#f1f1f1] text-[#999] group text-[10.27px] font-bold pl-6 pr-4 transition-colors"
+            className="flex items-center justify-between w-[252px] h-[56px] rounded-full bg-[#f1f1f1] text-[#999] group text-[10.27px] font-bold pl-6 pr-4 transition-colors project-detail-clickable"
           >
             <span className="uppercase text-[#999] group-hover:text-black transition-colors duration-300">Next Project</span>
             <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
