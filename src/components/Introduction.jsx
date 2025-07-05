@@ -16,7 +16,7 @@ const Introduction = () => {
   return (
     <div className={`introduction-container ${isVisible ? 'visible' : 'hidden'}`}>
       <p className="introduction-text">
-        Hey, I'm Luis, a product designer and artist based in Toronto.
+        Hey, I'm Luis, a product designer based in Toronto.
         <br /><br />
         I've led product and interface design for my startups, Chef+ and Perival, with the goal of merging sustainability and design. Currently, I'm creating a new product to help people plan their time while learning the latest AI tools.
         <br /><br />
